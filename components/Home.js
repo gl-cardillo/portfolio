@@ -5,6 +5,7 @@ import { particlesOptionDark, particlesOptionLight } from "../utils/particles";
 import { BsChevronDoubleDown } from "react-icons/bs";
 import Link from "next/link";
 import { useTheme } from "next-themes";
+import { useState, useEffect } from "react";
 
 export function Home() {
   const { theme, setTheme } = useTheme();
@@ -26,6 +27,7 @@ export function Home() {
     },
   };
 
+
   return (
     <div className="relative min-h-[100vh] text-white">
       <Particles
@@ -38,7 +40,7 @@ export function Home() {
           initial="hidden"
           animate="visible"
           variants={listItem}
-          className="flex justify-end items-center mix-blend-difference font-montserrat font-semibold z-50 gap-2 text-sm 2xs:gap-3.5 2xs:text-[15px] xs:gap-4 xs:text-base py-5 fixed top-0 left-0 w-[97vw]"
+          className="flex justify-end items-center mix-blend-difference font-montserrat font-semibold z-50 gap-2 text-sm 2xs:gap-3.5 2xs:text-[15px] xs:gap-4 xs py-5 fixed top-0 left-0 w-[97vw]"
         >
           <li className="relative flex flex-col items-center  overflow-hidden">
             <div className="flex">
