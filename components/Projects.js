@@ -23,8 +23,6 @@ export function Projects() {
   const [ref, inView] = useInView();
   const [ref2, inView2] = useInView();
   const [ref3, inView3] = useInView();
-  const animationLeft = useAnimation();
-  const animationRight = useAnimation();
 
   const slideOdinbook = [
     "/images/theOdinbook1.png",
@@ -55,13 +53,13 @@ export function Projects() {
   };
 
   return (
-    <div id="projects" className="bg-white">
-      <div className="flex flex-col m-3 lg:mx-20 xl:mx-32 text-center bg-white">
+    <div id="projects" className="bg-white dark:bg-black">
+      <div className="flex flex-col p-3 lg:px-20 xl:px-32 text-center ">
         <h2
           ref={ref}
-          className="font-dancing self-center text-[50px] w-full max-w-[300px] text-center border-b border-black leading-[0.1em] my-5 mx-0 font-semibold"
+          className="font-dancing self-center text-[50px] w-full max-w-[300px] text-center border-b border-black dark:border-white leading-[0.1em] my-5 mx-0 font-semibold"
         >
-          <span className="bg-white py-5">Projects</span>
+          <span className="bg-white dark:bg-black py-5">Projects</span>
         </h2>
         <motion.div
           initial={{ x: "-100vw" }}
@@ -129,7 +127,12 @@ export function Projects() {
           </h3>
           <Slider {...settings}>
             {slideAmazon.map((image, index) => (
-              <img src={image} className="rounded-md w-full" alt="" />
+              <img
+                key={index}
+                src={image}
+                className="rounded-md w-full"
+                alt=""
+              />
             ))}
           </Slider>
           <p className="m-5 font-roboto font-medium">
@@ -177,7 +180,12 @@ export function Projects() {
           </h3>{" "}
           <Slider {...settings}>
             {slideInstapets.map((image, index) => (
-              <img src={image} className="rounded-md w-full" alt="" />
+              <img
+                key={index}
+                src={image}
+                className="rounded-md w-full"
+                alt=""
+              />
             ))}
           </Slider>
           <p className="m-5 font-roboto font-medium">

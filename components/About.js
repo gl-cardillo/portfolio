@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import { useAnimation, motion } from "framer-motion";
 
+
+
 export function About() {
   const { ref, inView } = useInView();
   const animationOpacity = useAnimation();
@@ -18,15 +20,15 @@ export function About() {
   }, [inView]);
 
   return (
-    <div id="about" className="flex bg-white">
+    <div id="about" className="flex bg-white dark:bg-black">
       <div className="pt-5 pb-3 mx-5 my-20 border-b border-slate-300 lg:mx-[250px] xl:mx-[300px] 2xl:mx-[500px] 3xl:mx-[700px] ">
         <div ref={ref}>
           <motion.div
             animate={animationOpacity}
             className="flex flex-col items-center"
           >
-            <h2 className=" font-dancing text-[50px] w-full max-w-[300px] text-center border-b border-black leading-[0.1em] my-5 mx-0 font-semibold">
-              <span className="bg-white py-5">About me</span>
+            <h2 className=" font-dancing text-[50px] w-full max-w-[300px] text-center border-b border-black dark:border-white leading-[0.1em] my-5 mx-0 font-semibold">
+              <span className="bg-white dark:bg-black py-5">About me</span>
             </h2>
             <p className="font-montserrat text-center p-5 rounded-bl-md font-semibold text-xl leading-7 mt-8">
               I am a self-taught full stack developer based in London.As someone

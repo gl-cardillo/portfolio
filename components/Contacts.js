@@ -40,10 +40,10 @@ export function Contacts() {
   return (
     <div
       id="contact"
-      className="flex flex-col justify-center text-white bg-black mt-10 py-7"
+      className="flex flex-col justify-center text-white dark:text-black bg-black dark:bg-white   py-7"
     >
-      <h2 className="font-dancing self-center text-[50px] w-full max-w-[300px] text-center border-b border-white leading-[0.1em] my-5 mx-0 font-semibold">
-        <span className="bg-black py-5">Contact me</span>
+      <h2 className="font-dancing self-center text-[50px] w-full max-w-[300px] text-center border-b border-white dark:border-black leading-[0.1em] my-5 mx-0 font-semibold">
+        <span className="bg-black dark:bg-white py-5">Contact me</span>
       </h2>
       <div className="flex flex-col items-center gap-2 pt-7">
         <h3 className="text-xl font-openSans pb-2">Send me a message !</h3>
@@ -56,7 +56,7 @@ export function Contacts() {
             name="name"
             placeholder="Name"
             {...register("name")}
-            className="p-1 rounded-sm text-black"
+            className="p-1 rounded-sm text-black dark:text-white dark:bg-black"
           />
           <p className="text-[12px] pt-1 pb-3">{errors?.name?.message}</p>
           <input
@@ -64,7 +64,7 @@ export function Contacts() {
             name="email"
             placeholder="Email"
             {...register("email")}
-            className="p-1 rounded-sm text-black"
+            className="p-1 rounded-sm text-black  dark:text-white dark:bg-black"
           />
           <p className="text-[12px] pt-1 pb-3">{errors?.email?.message}</p>
           <textarea
@@ -72,12 +72,12 @@ export function Contacts() {
             name="message"
             placeholder="Message"
             {...register("message")}
-            className="p-1 rounded-sm resize-none h-[100px] text-black"
+            className="p-1 rounded-sm resize-none h-[100px] text-black  dark:text-white dark:bg-black"
           ></textarea>{" "}
           <p className="text-[12px] pt-1 pb-3">{errors?.message?.message}</p>
           <button
             type="submit"
-            className="bg-white text-black p-1 font-medium font-montserrat text-xl"
+            className="bg-white dark:bg-black text-black dark:text-white p-1 font-medium font-montserrat text-xl"
           >
             Send
           </button>
@@ -115,16 +115,6 @@ export function Contacts() {
           </a>
         </div>
       </div>
-      {/*  <p>or</p>
-      <form onSubmit={handleSubmit(sendEmail)}>
-        <label htmlFor="name">Name:</label>
-        <input type="text" name="name" {...register("name")} />
-        <label htmlFor="email">Email:</label>
-        <input type="email" name="email" {...register("email")} />
-        <label htmlFor="message">Message:</label>
-        <input type="text" name="message" {...register("message")} />
-        <button type="submit">Send</button>
-  </form>*/}
     </div>
   );
 }
