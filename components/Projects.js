@@ -52,7 +52,6 @@ export function Projects() {
     fade: true,
     autoplaySpeed: 3000,
     arrows: false,
-
   };
 
   return (
@@ -75,14 +74,12 @@ export function Projects() {
           </h3>
           <Slider {...settings}>
             {slideOdinbook.map((image, index) => (
-              <div key={index} className="w-full aspect-video relative">
-                <Image
-                  src={image}
-                  layout="fill"
-                  alt=""
-                  className="rounded-md "
-                />
-              </div>
+              <img
+                key={index}
+                src={image}
+                alt=""
+                className="rounded-md w-full"
+              />
             ))}
           </Slider>
           <p className="m-5 font-roboto font-medium">
@@ -132,14 +129,7 @@ export function Projects() {
           </h3>
           <Slider {...settings}>
             {slideAmazon.map((image, index) => (
-              <div key={index} className="w-full aspect-video relative">
-                <Image
-                  src={image}
-                  className="rounded-md "
-                  layout="fill"
-                  alt=""
-                />
-              </div>
+              <img src={image} className="rounded-md w-full" alt="" />
             ))}
           </Slider>
           <p className="m-5 font-roboto font-medium">
@@ -187,14 +177,7 @@ export function Projects() {
           </h3>{" "}
           <Slider {...settings}>
             {slideInstapets.map((image, index) => (
-              <div key={index} className="w-full aspect-video relative">
-                <Image
-                  src={image}
-                  className="rounded-md "
-                  layout="fill"
-                  alt=""
-                />
-              </div>
+              <img src={image} className="rounded-md w-full" alt="" />
             ))}
           </Slider>
           <p className="m-5 font-roboto font-medium">
