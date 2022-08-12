@@ -31,10 +31,10 @@ export function About() {
               <span className="bg-white dark:bg-black py-5">About me</span>
             </h2>
             <p className="font-montserrat text-center p-5 rounded-bl-md font-semibold text-xl leading-7 mt-8">
-              I am a self-taught full stack developer based in London.As someone
+              I am a self-taught full stack developer based in London. As someone
               with a keen interest in tech, critical thinking, and
               problem-solving I decided in September 2021 to learn about coding
-              and I fall in love with it, studying from resources such as
+              and I fell in love with it, studying from resources such as
               Codecademy, The Odin Project, and Leetcode, I have become
               confident developing full stack applications with the MERN stack.
             </p>

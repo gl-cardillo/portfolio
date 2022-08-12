@@ -40,10 +40,10 @@ export function Contacts() {
   return (
     <div
       id="contact"
-      className="flex flex-col justify-center text-white dark:text-black bg-black dark:bg-white   py-7"
+      className="flex flex-col justify-center text-white dark:text-black bg-neutral-900 dark:bg-white   py-7"
     >
       <h2 className="font-dancing self-center text-[50px] w-full max-w-[300px] text-center border-b border-white dark:border-black leading-[0.1em] my-5 mx-0 font-semibold">
-        <span className="bg-black dark:bg-white py-5">Contact me</span>
+        <span className="bg-neutral-900 dark:bg-white py-5">Contact me</span>
       </h2>
       <div className="flex flex-col items-center gap-2 pt-7">
         <h3 className="text-xl font-openSans pb-2">Send me a message !</h3>

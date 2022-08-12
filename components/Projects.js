@@ -1,20 +1,10 @@
 import { BiLinkExternal } from "react-icons/bi";
 import { useInView } from "react-intersection-observer";
 import { useAnimation, motion } from "framer-motion";
-import Image from "next/image";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import {
-  FaGithub,
-  FaCode,
-  FaEye,
-  FaHtml5,
-  FaCss3Alt,
-  FaJsSquare,
-  FaReact,
-  FaNodeJs,
-} from "react-icons/fa";
+import { FaGithub, FaCode, FaCss3Alt, FaReact, FaNodeJs } from "react-icons/fa";
 import { DiMongodb } from "react-icons/di";
 import { IoLogoFirebase } from "react-icons/io5";
 import { SiJest, SiPassport, SiNextdotjs, SiTailwindcss } from "react-icons/si";
@@ -98,18 +88,18 @@ export function Projects() {
           </p>
           <div className="flex justify-center gap-5 mt-5">
             <a
-              href="https://github.com/gl-cardillo/the-odinbook"
+              href="https://the-odinbook.herokuapp.com/"
               target="_blank"
               rel="noreferrer"
-              className="px-1 py-2 rounded-lg text-white bg-black text-xl border border-black"
+              className="p-2 rounded-lg text-white dark:text-black bg-neutral-900 dark:bg-white text-xl border  hover:scale-110"
             >
               <BiLinkExternal />
             </a>
             <a
-              href="https://the-odinbook.herokuapp.com/"
+              href="https://github.com/gl-cardillo/the-odinbook"
               target="_blank"
               rel="noreferrer"
-              className="px-1 py-2 rounded-lg text-white bg-black text-xl border border-black"
+              className="p-2 rounded-lg text-white dark:text-black bg-neutral-900 dark:bg-white text-xl border  hover:scale-110"
             >
               <FaCode />
             </a>
@@ -147,6 +137,7 @@ export function Projects() {
               Made with:
             </span>
             <SiNextdotjs />
+            <DiMongodb />
             <SiTailwindcss />
           </p>
           <div className="flex justify-center gap-5 mt-5">
@@ -154,7 +145,7 @@ export function Projects() {
               href="https://amazon-clone-phi-green.vercel.app/"
               target="_blank"
               rel="noreferrer"
-              className="px-1 py-2 rounded-lg text-white bg-black text-xl border border-black"
+              className="p-2 rounded-lg text-white dark:text-black bg-neutral-900 dark:bg-white text-xl border hover:scale-110"
             >
               <BiLinkExternal />
             </a>
@@ -162,7 +153,7 @@ export function Projects() {
               href="https://github.com/gl-cardillo/amazon-clone"
               target="_blank"
               rel="noreferrer"
-              className="px-1 py-2 rounded-lg text-white bg-black text-xl border border-black"
+              className="p-2 rounded-lg text-white dark:text-black bg-neutral-900 dark:bg-white text-xl border hover:scale-110"
             >
               <FaCode />
             </a>
@@ -208,7 +199,7 @@ export function Projects() {
               href="https://gl-cardillo.github.io/instapets/#/login"
               target="_blank"
               rel="noreferrer"
-              className="px-1 py-2 rounded-lg text-white bg-black text-xl border border-black"
+              className="p-2 rounded-lg text-white dark:text-black bg-neutral-900 dark:bg-white text-xl border border-black hover:scale-110"
             >
               <BiLinkExternal />
             </a>
@@ -216,16 +207,22 @@ export function Projects() {
               href="https://github.com/gl-cardillo/instapets"
               target="_blank"
               rel="noreferrer"
-              className="px-1 py-2 rounded-lg text-white bg-black text-xl border border-black"
+              className="p-2 rounded-lg text-white dark:text-black bg-neutral-900 dark:bg-white text-xl border border-black  hover:scale-110"
             >
               <FaCode />
             </a>
           </div>
         </motion.div>
       </div>
-      <div className="border-b  border-slate-400 max-w-[500px] self-center py-7 mx-auto text-center flex flex-col  items-center gap-1 justify-center text-xl">
-        <p>Want to see more projects?? Check my </p>{" "}
-        <FaGithub className="text-3xl" />
+      <div className="border-b border-slate-400 max-w-[500px] self-center py-7 mx-auto  flex justify-center text-xl">
+        <a
+          href="https://github.com/gl-cardillo"
+          target="_blank"
+          rel="noreferrer"
+          className="flex gap-2 items-center border border-black dark:border-white p-2 px-4 rounded-full hover:scale-105"
+        >
+          See more on <FaGithub className="text-3xl" />
+        </a>{" "}
       </div>
     </div>
   );

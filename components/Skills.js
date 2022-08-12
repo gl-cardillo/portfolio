@@ -36,7 +36,7 @@ export function Skills() {
           <h3 className=" my-2 text-2xl pt-7 font-montserrat font-semibold">
             Front-end
           </h3>
-          <div className="flex flex-wrap gap-6 p-5 rounded-lg w-[250px] shadow-[0_0_20px_1px_#9f9f9f] text-[80px] justify-center text-white dark:text-black bg-black dark:bg-white">
+          <div className="flex flex-wrap gap-8 p-5 rounded-lg w-[250px] shadow-[0_0_20px_1px_#9f9f9f] text-[70px] justify-center text-white dark:text-black bg-neutral-900 dark:bg-white">
             <FaHtml5 />
             <FaCss3Alt />
             <FaJsSquare />
@@ -50,7 +50,7 @@ export function Skills() {
           <h3 className=" my-2 text-2xl pt-7 font-montserrat font-semibold">
             Back-end
           </h3>
-          <div className="flex flex-wrap gap-6 p-5 rounded-lg w-[250px] shadow-[0_0_20px_1px_#9f9f9f] text-[80px] justify-center text-white dark:text-black bg-black dark:bg-white">
+          <div className="flex flex-wrap gap-8 p-5 rounded-lg w-[250px] shadow-[0_0_20px_1px_#9f9f9f] text-[70px] justify-center text-white dark:text-black bg-neutral-900 dark:bg-white">
             <FaNodeJs />
             <DiMongodb />
             <SiExpress />
@@ -64,7 +64,7 @@ export function Skills() {
           <h3 className=" my-2 text-2xl pt-7 font-montserrat font-semibold">
             Miscellaneous
           </h3>
-          <div className="flex flex-wrap gap-6 p-5 rounded-lg w-[250px] shadow-[0_0_20px_1px_#9f9f9f] text-[80px] justify-center text-white dark:text-black bg-black dark:bg-white">
+          <div className="flex flex-wrap gap-8 p-5 rounded-lg w-[250px] shadow-[0_0_20px_1px_#9f9f9f] text-[70px] justify-center text-white dark:text-black bg-neutral-900 dark:bg-white">
             <FaGitAlt />
             <FaGithub />
             <FaLinux />
