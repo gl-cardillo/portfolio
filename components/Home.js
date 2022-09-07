@@ -93,7 +93,7 @@ export function Home() {
         <motion.h1
           animate={{ y: [-20, 0], opacity: [0, 1] }}
           transition={{ ease: "easeOut", duration: 2 }}
-          className="text-white dark:text-black ont-montserrat font-semibold text-[70px] xs:text-[80px] z-10 ml-[20px] xs:ml-[55px] md:ml-[120px] leading-[75px]"
+          className="text-white opacity-0 dark:text-black ont-montserrat font-semibold text-[70px] xs:text-[80px] z-10 ml-[20px] xs:ml-[55px] md:ml-[120px] leading-[75px]"
         >
           Luca Cardillo
         </motion.h1>

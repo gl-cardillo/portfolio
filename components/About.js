@@ -33,7 +33,7 @@ export function About() {
             <p className="font-montserrat text-center p-5 rounded-bl-md font-semibold text-xl leading-7 mt-8">
               I am a self-taught full stack developer based in London. As someone
               with a keen interest in tech, critical thinking, and
-              problem-solving I decided in September 2021 to learn about coding
+              problem-solving I decided in March 2021 to learn about coding
               and I fell in love with it, studying from resources such as
               Codecademy, The Odin Project, and Leetcode, I have become
               confident developing full stack applications with the MERN stack.
