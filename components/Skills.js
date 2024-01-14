@@ -19,7 +19,10 @@ import {
   SiPassport,
   SiNextdotjs,
   SiTailwindcss,
+  SiTypescript,
+  SiJavascript,
 } from "react-icons/si";
+
 import { FiFramer } from "react-icons/fi";
 
 export function Skills() {
@@ -39,7 +42,8 @@ export function Skills() {
           <div className="flex flex-wrap gap-8 p-5 rounded-lg w-[250px] shadow-[0_0_20px_1px_#9f9f9f] text-[70px] justify-center text-white dark:text-black bg-neutral-900 dark:bg-white">
             <FaHtml5 />
             <FaCss3Alt />
-            <FaJsSquare />
+            <SiTypescript />
+            <SiJavascript />
             <FaReact />
             <FiFramer />
             <SiNextdotjs />
