@@ -77,7 +77,7 @@ export function Contacts() {
           <p className="text-[12px] pt-1 pb-3">{errors?.message?.message}</p>
           <button
             type="submit"
-            className="bg-white dark:bg-black text-black dark:text-white p-1 font-medium font-montserrat text-xl"
+            className="bg-white dark:bg-black text-black dark:text-white p-1 font-medium font-montserrat text-xl rounded-sm"
           >
             Send
           </button>
