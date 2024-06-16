@@ -6,7 +6,6 @@ import { BsChevronDoubleDown } from "react-icons/bs";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 
-
 export function Home() {
   const { theme, setTheme } = useTheme();
 
@@ -27,13 +26,12 @@ export function Home() {
     },
   };
 
-
   return (
     <div className="relative min-h-[100vh] text-white">
       <Particles
-        className="absolute h-full w-full pt-10 bg-black dark:bg-white"
+        className="absolute h-full w-full pt-10 bg-white dark:bg-black"
         init={particlesInit}
-        options={theme === "light" ? particlesOptionDark : particlesOptionLight}
+        options={theme === "light" ? particlesOptionLight : particlesOptionDark}
       />
       <div>
         <motion.ul
@@ -42,7 +40,11 @@ export function Home() {
           variants={listItem}
           className="flex justify-end items-center mix-blend-difference font-montserrat font-semibold z-50 gap-2 text-sm 2xs:gap-3.5 2xs:text-[15px] xs:gap-4 xs py-5 fixed top-0 left-0 w-[97vw]"
         >
-          <motion.li variants={listItem} li className="relative flex flex-col items-center  overflow-hidden">
+          <motion.li
+            variants={listItem}
+            li
+            className="relative flex flex-col items-center  overflow-hidden"
+          >
             <div className="flex">
               <label className="inline-flex relative items-center  cursor-pointer">
                 <input
@@ -93,14 +95,14 @@ export function Home() {
         <motion.h1
           animate={{ y: [-20, 0], opacity: [0, 1] }}
           transition={{ ease: "easeOut", duration: 2 }}
-          className="text-white opacity-0 dark:text-black ont-montserrat font-semibold text-[70px] xs:text-[80px] z-10 ml-[20px] xs:ml-[55px] md:ml-[120px] leading-[75px]"
+          className="text-gray-900 opacity-0 dark:text-white ont-montserrat font-semibold text-[70px] xs:text-[80px] z-10 ml-[20px] xs:ml-[55px] md:ml-[120px] leading-[75px]"
         >
           Luca Cardillo
         </motion.h1>
         <motion.p
           animate={{ x: ["-10vw", "7vw"] }}
           transition={{ ease: "easeOut", duration: 2 }}
-          className="text-white dark:text-black font-montserrat w-[300px] text-3xl md:ml-[30px] mt-5"
+          className="text-black dark:text-white font-montserrat w-[300px] text-3xl md:ml-[30px] mt-5"
         >
           Fullstack developer
         </motion.p>
@@ -108,7 +110,7 @@ export function Home() {
       <motion.div
         animate={{ y: ["-0vh", "2vh", "-0vh"] }}
         transition={{ duration: 2, repeat: Infinity }}
-        className="flex justify-center text-4xl dark:text-black"
+        className="flex justify-center text-4xl text-black dark:text-white"
       >
         <BsChevronDoubleDown />
       </motion.div>

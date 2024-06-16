@@ -44,7 +44,7 @@ export function Projects() {
 
   return (
     <div id="projects" className="bg-white dark:bg-black">
-      <div className="flex flex-col p-3 lg:px-20 xl:px-32 text-center ">
+      <div className="flex flex-col p-3 lg:px-20 xl:px-32 text-center">
         <h2
           ref={ref}
           className="font-dancing self-center text-[50px] w-full max-w-[300px] text-center border-b border-black dark:border-white leading-[0.1em] my-5 mx-0 font-semibold"
@@ -55,7 +55,7 @@ export function Projects() {
           initial={{ x: "-100vw" }}
           animate={inView && { x: 0 }}
           transition={{ duration: 1.5 }}
-          className="w-[90%] md:w-[70%] xl:w-[60%] p-2.5 rounded-lg mt-12 z-10 shadow-[0_0_20px_1px_#9f9f9f] self-start"
+          className="w-[90%] md:w-[70%] xl:w-[60%] p-2.5 rounded-lg mt-12 z-10 shadow-md self-start dark:bg-neutral-900 border border-gray-50 dark:border-none"
         >
           <h3 className="text-3xl mb-5 font-montserrat font-semibold">
             The Odinbook
@@ -91,7 +91,7 @@ export function Projects() {
               href="https://odin-book-client-delta.vercel.app/"
               target="_blank"
               rel="noreferrer"
-              className="p-2 rounded-lg text-white dark:text-black bg-neutral-900 dark:bg-white text-xl border  hover:scale-110"
+              className="p-2 rounded-lg text-white dark:text-black bg-blue-600 dark:bg-white text-xl shadow hover:scale-110 transition-transform duration-300"
             >
               <BiLinkExternal />
             </a>
@@ -99,7 +99,7 @@ export function Projects() {
               href="https://github.com/gl-cardillo/the-odinbook"
               target="_blank"
               rel="noreferrer"
-              className="p-2 rounded-lg text-white dark:text-black bg-neutral-900 dark:bg-white text-xl border  hover:scale-110"
+              className="p-2 rounded-lg text-white dark:text-black bg-green-600 dark:bg-white text-xl shadow hover:scale-110 transition-transform duration-300"
             >
               <FaCode />
             </a>
@@ -110,7 +110,7 @@ export function Projects() {
           initial={{ x: "-100vw" }}
           animate={inView2 && { x: 0 }}
           transition={{ duration: 1.25 }}
-          className="w-[90%] md:w-[70%] xl:w-[60%] p-2.5 rounded-lg mt-12 z-10 shadow-[0_0_20px_1px_#9f9f9f] self-end"
+          className="w-[90%] md:w-[70%] xl:w-[60%] p-2.5 rounded-lg mt-12 z-10 shadow-md self-end dark:bg-neutral-900 border border-gray-50 dark:border-none"
         >
           <h3 className="text-3xl mb-5 font-montserrat font-semibold">
             Amazon clone
@@ -145,7 +145,7 @@ export function Projects() {
               href="https://amazon-clone-phi-green.vercel.app/"
               target="_blank"
               rel="noreferrer"
-              className="p-2 rounded-lg text-white dark:text-black bg-neutral-900 dark:bg-white text-xl border hover:scale-110"
+              className="p-2 rounded-lg text-white dark:text-black bg-blue-600 dark:bg-white text-xl shadow hover:scale-110 transition-transform duration-300"
             >
               <BiLinkExternal />
             </a>
@@ -153,7 +153,7 @@ export function Projects() {
               href="https://github.com/gl-cardillo/amazon-clone"
               target="_blank"
               rel="noreferrer"
-              className="p-2 rounded-lg text-white dark:text-black bg-neutral-900 dark:bg-white text-xl border hover:scale-110"
+              className="p-2 rounded-lg text-white dark:text-black bg-green-600 dark:bg-white text-xl shadow hover:scale-110 transition-transform duration-300"
             >
               <FaCode />
             </a>
@@ -164,11 +164,11 @@ export function Projects() {
           initial={{ x: "-100vw" }}
           animate={inView3 && { x: 0 }}
           transition={{ duration: 1.25 }}
-          className="w-[90%] md:w-[70%] xl:w-[60%] p-2.5 rounded-lg mt-12 z-10 shadow-[0_0_20px_1px_#9f9f9f] self-start"
+          className="w-[90%] md:w-[70%] xl:w-[60%] p-2.5 rounded-lg mt-12 z-10 shadow-md self-start dark:bg-neutral-900 border border-gray-50 dark:border-none"
         >
           <h3 className="text-3xl mb-5 font-montserrat font-semibold">
             Instapets
-          </h3>{" "}
+          </h3>
           <Slider {...settings}>
             {slideInstapets.map((image, index) => (
               <img
@@ -187,7 +187,6 @@ export function Projects() {
           </p>
           <p className="flex gap-1 2xs:gap-2 justify-center items-center font-bold text-2xl">
             <span className="text-sm 2xs:text-base 2xs:font-montserrat sm:text-lg">
-              {" "}
               Made with:
             </span>
             <FaReact />
@@ -199,7 +198,7 @@ export function Projects() {
               href="https://gl-cardillo.github.io/instapets/#/login"
               target="_blank"
               rel="noreferrer"
-              className="p-2 rounded-lg text-white dark:text-black bg-neutral-900 dark:bg-white text-xl border border-black hover:scale-110"
+              className="p-2 rounded-lg text-white dark:text-black bg-blue-600 dark:bg-white text-xl shadow hover:scale-110 transition-transform duration-300"
             >
               <BiLinkExternal />
             </a>
@@ -207,7 +206,7 @@ export function Projects() {
               href="https://github.com/gl-cardillo/instapets"
               target="_blank"
               rel="noreferrer"
-              className="p-2 rounded-lg text-white dark:text-black bg-neutral-900 dark:bg-white text-xl border border-black  hover:scale-110"
+              className="p-2 rounded-lg text-white dark:text-black bg-green-600 dark:bg-white text-xl shadow hover:scale-110 transition-transform duration-300"
             >
               <FaCode />
             </a>
@@ -222,7 +221,7 @@ export function Projects() {
           className="flex gap-2 items-center border border-black dark:border-white p-2 px-4 rounded-full hover:scale-105"
         >
           See more on <FaGithub className="text-3xl" />
-        </a>{" "}
+        </a>
       </div>
     </div>
   );
