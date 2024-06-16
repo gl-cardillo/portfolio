@@ -88,7 +88,7 @@ export function Projects() {
           </p>
           <div className="flex justify-center gap-5 mt-5">
             <a
-              href="https://the-odinbook.herokuapp.com/"
+              href="https://odin-book-client-delta.vercel.app/"
               target="_blank"
               rel="noreferrer"
               className="p-2 rounded-lg text-white dark:text-black bg-neutral-900 dark:bg-white text-xl border  hover:scale-110"
