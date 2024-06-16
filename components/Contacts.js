@@ -51,7 +51,7 @@ export function Contacts() {
       <div className="flex flex-col items-center gap-2 pt-7">
         <form
           onSubmit={handleSubmit(sendEmail)}
-          className="flex flex-col gap-2 w-[300px]"
+          className="flex flex-col gap-0.5 w-[300px]"
         >
           <div className="relative">
             <input
@@ -68,7 +68,9 @@ export function Contacts() {
             >
               Name
             </label>
-            <p className="text-red-500 text-xs pt-1">{errors?.name?.message}</p>
+            <p className="text-red-500 text-xs pt-0.5 h-[20px]">
+              {errors?.name?.message}
+            </p>
           </div>
           <div className="relative">
             <input
@@ -85,7 +87,7 @@ export function Contacts() {
             >
               Email
             </label>
-            <p className="text-red-500 text-xs pt-1">
+            <p className="text-red-500 text-xs pt-0.5 h-[20px]">
               {errors?.email?.message}
             </p>
           </div>
@@ -102,7 +104,7 @@ export function Contacts() {
             >
               Message
             </label>
-            <p className="text-red-500 text-xs pt-1">
+            <p className="text-red-500 text-xs pt-0.5 h-[20px]">
               {errors?.message?.message}
             </p>
           </div>
