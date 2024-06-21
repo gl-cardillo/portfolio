@@ -7,7 +7,13 @@ import "slick-carousel/slick/slick-theme.css";
 import { FaGithub, FaCode, FaCss3Alt, FaReact, FaNodeJs } from "react-icons/fa";
 import { DiMongodb } from "react-icons/di";
 import { IoLogoFirebase } from "react-icons/io5";
-import { SiJest, SiPassport, SiNextdotjs, SiTailwindcss } from "react-icons/si";
+import {
+  SiJest,
+  SiPassport,
+  SiNextdotjs,
+  SiTailwindcss,
+  FaAws,
+} from "react-icons/si";
 
 export function Projects() {
   const [ref, inView] = useInView();
@@ -84,7 +90,8 @@ export function Projects() {
             <DiMongodb />
             <SiPassport />
             <SiJest />
-            <FaCss3Alt />{" "}
+            <FaCss3Alt />
+            <FaAws />
           </p>
           <div className="flex justify-center gap-5 mt-5">
             <a
