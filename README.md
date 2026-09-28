@@ -1,34 +1,71 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Luca Cardillo — Portfolio
 
-## Getting Started
+My personal portfolio site, built with Next.js, TypeScript and Tailwind CSS.
 
-First, run the development server:
+**Live site:** [luca-cardillo.com](https://luca-cardillo.com)
+
+I'm a UK-based front-end developer with 3+ years of professional experience building with React, TypeScript and Next.js. This site covers my experience, projects and skills, and has a contact form that emails me directly.
+
+## Features
+
+- **Light and dark mode** with a persisted theme toggle (`next-themes`)
+- **Project showcase** with screenshot galleries, optimised with `next/image` (responsive sizes, WebP, blur placeholders)
+- **Validated contact form** built with React Hook Form and Yup, sending email through EmailJS
+- **Scroll animations** with Framer Motion that respect the user's reduced-motion setting
+- **Interactive particle background** in the hero section
+- **Responsive layout** from small phones up to wide desktop screens
+
+## Tech stack
+
+| Area       | Tools                                              |
+| ---------- | -------------------------------------------------- |
+| Framework  | Next.js 16 (Pages Router), React 18                |
+| Language   | TypeScript (strict mode)                           |
+| Styling    | Tailwind CSS                                       |
+| Animation  | Framer Motion, tsParticles                         |
+| Forms      | React Hook Form, Yup, EmailJS                      |
+| Tooling    | ESLint (flat config with `eslint-config-next`)     |
+
+## Getting started
+
+Requires Node.js 20.9 or later.
 
 ```bash
+git clone https://github.com/gl-cardillo/portfolio.git
+cd portfolio
+npm install
+cp .env.example .env.local   # then add your EmailJS keys
 npm run dev
-# or
-yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Scripts
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+| Command             | Description                        |
+| ------------------- | ---------------------------------- |
+| `npm run dev`       | Start the development server       |
+| `npm run build`     | Create a production build          |
+| `npm start`         | Serve the production build         |
+| `npm run lint`      | Lint the project with ESLint       |
+| `npm run typecheck` | Type-check with the TypeScript compiler |
 
-## Learn More
+## Project structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+components/     Page sections: Home (hero + nav), About, Experience,
+                Projects, Skills, Contacts, plus the shared Layout
+pages/          Next.js pages, _app (theme provider) and _document (fonts)
+public/images/  Project screenshots and icons
+styles/         Global styles and Tailwind directives
+utils/          tsParticles configuration for light and dark themes
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Content such as projects, skills and experience lives in typed arrays at the top of each component, so adding a project means adding one entry to the `projects` array in `components/Projects.tsx`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Contact
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Email: [glucacardillo94@gmail.com](mailto:glucacardillo94@gmail.com)
+- LinkedIn: [luca-cardillo](https://www.linkedin.com/in/luca-cardillo-528229162)
+- GitHub: [gl-cardillo](https://github.com/gl-cardillo)
