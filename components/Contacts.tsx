@@ -1,34 +1,41 @@
 import { useState } from "react";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
-import { GrMail } from "react-icons/gr";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { send } from "emailjs-com";
 
+const EMAIL = "giovanniluca.cardillo@gmail.com";
+
+const schema = yup.object({
+  name: yup.string().required("I would like to know your name!"),
+  email: yup
+    .string()
+    .email("Enter a valid email")
+    .required("I need an email to answer you back"),
+  message: yup.string().required("Nothing to say?"),
+});
+
+type ContactForm = yup.InferType<typeof schema>;
+
+const inputClassName =
+  "shadow block px-2.5 pb-1.5 pt-2 w-full text-sm text-gray-900 bg-transparent rounded border border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer";
+
 export function Contacts() {
   const [response, setResponse] = useState("");
-  const schema = yup.object().shape({
-    name: yup.string().required("I would like to know your name!"),
-    email: yup
-      .string()
-      .email("Enter a valid email")
-      .required("I need an email to answer you back"),
-    message: yup.string().required("Nothing to say?"),
-  });
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<ContactForm>({
     resolver: yupResolver(schema),
   });
 
-  const sendEmail = (data) => {
+  const sendEmail = (data: ContactForm) => {
     send(
-      process.env.NEXT_PUBLIC_SERVICE_ID,
-      process.env.NEXT_PUBLIC_TEMPLATE_ID,
+      process.env.NEXT_PUBLIC_SERVICE_ID ?? "",
+      process.env.NEXT_PUBLIC_TEMPLATE_ID ?? "",
       data,
       process.env.NEXT_PUBLIC_PUBLIC_KEY
     )
@@ -55,47 +62,47 @@ export function Contacts() {
         >
           <div className="relative">
             <input
-              type="name"
-              name="name"
+              type="text"
               id="name"
+              autoComplete="name"
               {...register("name")}
-              className="shadow block px-2.5 pb-1.5 pt-2 w-full text-sm text-gray-900 bg-transparent rounded border border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              className={inputClassName}
               placeholder=" "
             />
             <label
-              for="name"
+              htmlFor="name"
               className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-neutral-900 px-2 peer-focus:px-1 peer-focus:left-1.5 peer-placeholder-shown:-translate-y-5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
             >
               Name
             </label>
             <p className="text-red-500 text-xs pt-0.5 h-[20px]">
-              {errors?.name?.message}
+              {errors.name?.message}
             </p>
           </div>
           <div className="relative">
             <input
               type="email"
-              name="email"
               id="email"
+              autoComplete="email"
               {...register("email")}
-              className="shadow block px-2.5 pb-1.5 pt-2 w-full text-sm text-gray-900 bg-transparent rounded border border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              className={inputClassName}
               placeholder=" "
             />
             <label
-              for="email"
+              htmlFor="email"
               className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-100 z-10 origin-[0] bg-white dark:bg-neutral-900 px-2 peer-focus:px-1 peer-focus:left-1.5 peer-placeholder-shown:-translate-y-5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
             >
               Email
             </label>
             <p className="text-red-500 text-xs pt-0.5 h-[20px]">
-              {errors?.email?.message}
+              {errors.email?.message}
             </p>
           </div>
           <div className="relative">
             <textarea
-              name="message"
+              id="message"
               {...register("message")}
-              className="shadow block px-2.5 pb-1.5 pt-2 w-full text-sm text-gray-900 bg-transparent rounded border border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              className={inputClassName}
               placeholder=" "
             ></textarea>
             <label
@@ -105,7 +112,7 @@ export function Contacts() {
               Message
             </label>
             <p className="text-red-500 text-xs pt-0.5 h-[20px]">
-              {errors?.message?.message}
+              {errors.message?.message}
             </p>
           </div>
           <button
@@ -126,6 +133,7 @@ export function Contacts() {
             href="https://www.linkedin.com/in/luca-cardillo-528229162"
             target="_blank"
             rel="noreferrer"
+            aria-label="LinkedIn"
           >
             <FaLinkedin />
           </a>
@@ -133,18 +141,14 @@ export function Contacts() {
             href="https://github.com/gl-cardillo"
             target="_blank"
             rel="noreferrer"
+            aria-label="GitHub"
           >
             <FaGithub />
           </a>
         </div>
         <div>
-          <a
-            href="mailto:justincaovan@gmail.com"
-            target="_blank"
-            rel="noreferrer"
-            className="text-lg"
-          >
-            giovanniluca.cardillo@gmail.com
+          <a href={`mailto:${EMAIL}`} className="text-lg">
+            {EMAIL}
           </a>
         </div>
       </div>

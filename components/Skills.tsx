@@ -1,7 +1,6 @@
 import {
   FaHtml5,
   FaCss3Alt,
-  FaJsSquare,
   FaReact,
   FaNodeJs,
   FaGitAlt,

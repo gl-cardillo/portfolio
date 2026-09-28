@@ -1,4 +1,8 @@
-export const particlesOptionDark = {
+import type { IParticlesProps } from "react-tsparticles";
+
+type ParticlesOptions = NonNullable<IParticlesProps["options"]>;
+
+export const particlesOptionDark: ParticlesOptions = {
   background: {
     color: {
       value: "#000000",
@@ -30,10 +34,8 @@ export const particlesOptionDark = {
   },
   particles: {
     color: {
-      value: "#00000",
+      value: "#000000",
     },
-    opacity: 0.6,
-
     links: {
       color: "#ffffff",
       distance: 150,
@@ -74,7 +76,7 @@ export const particlesOptionDark = {
   detectRetina: true,
 };
 
-export const particlesOptionLight = {
+export const particlesOptionLight: ParticlesOptions = {
   background: {
     color: {
       value: "#fff",
@@ -106,10 +108,8 @@ export const particlesOptionLight = {
   },
   particles: {
     color: {
-      value: "#00000",
+      value: "#000000",
     },
-    opacity: 0.6,
-
     links: {
       color: "#000",
       distance: 150,

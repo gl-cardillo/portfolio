@@ -1,30 +1,17 @@
-import { useState, useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
-import { useAnimation, motion } from "framer-motion";
-
-
+import { motion } from "framer-motion";
 
 export function About() {
-  const { ref, inView } = useInView();
-  const animationOpacity = useAnimation();
-
-  useEffect(() => {
-    if (inView) {
-      animationOpacity.start({
-        opacity: 1,
-        transition: { type: "tween", duration: 2.5 },
-      });
-    } else {
-      animationOpacity.start({  opacity: 0 });
-    }
-  }, [inView]);
+  const { ref, inView } = useInView({ triggerOnce: true });
 
   return (
     <div id="about" className="flex bg-white dark:bg-black">
       <div className="pt-5 pb-3 mx-5 my-20 border-b border-slate-300 lg:mx-[250px] xl:mx-[300px] 2xl:mx-[500px] 3xl:mx-[700px] ">
         <div ref={ref}>
           <motion.div
-            animate={animationOpacity}
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : undefined}
+            transition={{ type: "tween", duration: 2.5 }}
             className="flex flex-col items-center"
           >
             <h2 className=" font-dancing text-[50px] w-full max-w-[300px] text-center border-b border-black dark:border-white leading-[0.1em] my-5 mx-0 font-semibold">
