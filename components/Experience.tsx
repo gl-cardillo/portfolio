@@ -39,7 +39,7 @@ export const Experience = () => {
       </div>
       <ol className="max-w-3xl mx-auto mt-14 border-l-2 border-gray-200 dark:border-neutral-800">
         {entries.map((entry) => (
-          <li key={entry.role}className="relative pl-8 pb-12 last:pb-0">
+          <li key={entry.role} className="relative pl-8 pb-12 last:pb-0">
             <span
               aria-hidden
               className="absolute -left-[9px] top-2 h-4 w-4 rounded-full bg-black dark:bg-white ring-4 ring-white dark:ring-black"

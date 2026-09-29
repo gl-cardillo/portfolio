@@ -28,7 +28,7 @@ I'm a UK-based front-end developer with 3+ years of professional experience buil
 
 ## Getting started
 
-Requires Node.js 20.9 or later.
+Requires Node.js 24.
 
 ```bash
 git clone https://github.com/gl-cardillo/portfolio.git
@@ -66,6 +66,6 @@ Content such as projects, skills and experience lives in typed arrays at the top
 
 ## Contact
 
-- Email: [glucacardillo94@gmail.com](mailto:glucacardillo94@gmail.com)
+- Email: [giovanniluca.cardillo@gmail.com](mailto:giovanniluca.cardillo@gmail.com)
 - LinkedIn: [luca-cardillo](https://www.linkedin.com/in/luca-cardillo-528229162)
 - GitHub: [gl-cardillo](https://github.com/gl-cardillo)

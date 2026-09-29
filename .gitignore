@@ -34,3 +34,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# CV is served from Netlify Blobs, not the repo
+/public/cv.pdf
+
+# Local Netlify folder
+.netlify
