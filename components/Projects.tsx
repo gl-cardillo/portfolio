@@ -1,87 +1,10 @@
 import { useState } from "react";
-import Image, { type StaticImageData } from "next/image";
-import type { IconType } from "react-icons";
+import Image from "next/image";
 import { BiLinkExternal } from "react-icons/bi";
 import { motion, MotionConfig } from "framer-motion";
-import {
-  FaGithub,
-  FaCss3Alt,
-  FaReact,
-  FaNodeJs,
-  FaAws,
-  FaArrowRight,
-} from "react-icons/fa";
-import { DiMongodb } from "react-icons/di";
-import { IoLogoFirebase } from "react-icons/io5";
-import { SiJest, SiPassport, SiNextdotjs, SiTailwindcss } from "react-icons/si";
-import odinbook1 from "../public/images/theOdinbook1.png";
-import odinbook2 from "../public/images/theOdinbook2.png";
-import odinbook3 from "../public/images/theOdinbook3.png";
-import amazon1 from "../public/images/amazon-clone-1.png";
-import amazon2 from "../public/images/amazon-clone-2.png";
-import amazon3 from "../public/images/amazon-clone-3.png";
-import instapets1 from "../public/images/instapets1.png";
-import instapets2 from "../public/images/instapets2.png";
-import instapets3 from "../public/images/instapets3.png";
+import { FaGithub, FaArrowRight } from "react-icons/fa";
+import {  projects, type Project } from "../data/projects";
 
-type Project = {
-  title: string;
-  category: string;
-  images: StaticImageData[];
-  description: string;
-  stack: { icon: IconType; name: string }[];
-  liveUrl: string;
-  codeUrl: string;
-};
-
-const projects: Project[] = [
-  {
-    title: "The Odinbook",
-    category: "Social network",
-    images: [odinbook1, odinbook2, odinbook3],
-    description:
-      "A full-stack social media platform inspired by Facebook, where users can create an account and share posts. A React front end talks to a Node and MongoDB REST API, with Passport authentication and Jest tests.",
-    stack: [
-      { icon: FaReact, name: "React" },
-      { icon: FaNodeJs, name: "Node.js" },
-      { icon: DiMongodb, name: "MongoDB" },
-      { icon: SiPassport, name: "Passport" },
-      { icon: SiJest, name: "Jest" },
-      { icon: FaCss3Alt, name: "CSS" },
-      { icon: FaAws, name: "AWS" },
-    ],
-    liveUrl: "https://odin-book-client-delta.vercel.app/",
-    codeUrl: "https://github.com/gl-cardillo/the-odinbook",
-  },
-  {
-    title: "Amazon Clone",
-    category: "E-commerce",
-    images: [amazon1, amazon2, amazon3],
-    description:
-      "A full-stack e-commerce app with authentication and account management. Users can browse products by category, leave reviews with ratings and manage their shopping cart.",
-    stack: [
-      { icon: SiNextdotjs, name: "Next.js" },
-      { icon: DiMongodb, name: "MongoDB" },
-      { icon: SiTailwindcss, name: "Tailwind CSS" },
-    ],
-    liveUrl: "https://amazon-clone-phi-green.vercel.app/",
-    codeUrl: "https://github.com/gl-cardillo/amazon-clone",
-  },
-  {
-    title: "Instapets",
-    category: "Social app",
-    images: [instapets1, instapets2, instapets3],
-    description:
-      "Instagram, but for pets: owners create an account for their pets and share posts and pictures. Built with React and Firebase for authentication, storage and data.",
-    stack: [
-      { icon: FaReact, name: "React" },
-      { icon: IoLogoFirebase, name: "Firebase" },
-      { icon: FaCss3Alt, name: "CSS" },
-    ],
-    liveUrl: "https://gl-cardillo.github.io/instapets/#/login",
-    codeUrl: "https://github.com/gl-cardillo/instapets",
-  },
-];
 
 function Screenshots({ project }: { project: Project }) {
   const [active, setActive] = useState(0);
@@ -159,13 +82,13 @@ const ProjectCard = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="group grid items-center gap-8 rounded-2xl border border-gray-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-4 sm:p-6 lg:grid-cols-12 lg:gap-10 lg:p-8 shadow-sm transition-shadow hover:shadow-lg"
+      className="group grid grid-cols-1 items-center gap-8 rounded-2xl border border-gray-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-4 sm:p-6 lg:grid-cols-12 lg:gap-10 lg:p-8 shadow-sm transition-shadow hover:shadow-lg"
     >
-      <div className={`lg:col-span-7 ${reversed ? "lg:order-last" : ""}`}>
+      <div className={`min-w-0 lg:col-span-7 ${reversed ? "lg:order-last" : ""}`}>
         <Screenshots project={project} />
       </div>
 
-      <div className="lg:col-span-5 flex flex-col gap-5 text-left">
+      <div className="min-w-0 lg:col-span-5 flex flex-col gap-5 text-left">
         <div>
           <p className="font-montserrat text-sm font-semibold uppercase tracking-widest text-gray-500 dark:text-neutral-400">
             {String(index + 1).padStart(2, "0")} · {project.category}
@@ -225,6 +148,7 @@ export function Projects() {
         </div>
 
         <div className="mx-auto mt-14 flex max-w-6xl flex-col gap-10 lg:gap-14">
+     
           {projects.map((project, index) => (
             <ProjectCard key={project.title} project={project} index={index} />
           ))}
@@ -235,7 +159,7 @@ export function Projects() {
             href="https://github.com/gl-cardillo"
             target="_blank"
             rel="noreferrer"
-            className="group/link inline-flex items-center gap-2 rounded-full border border-gray-300 dark:border-neutral-700 px-5 py-2.5 font-montserrat font-semibold transition-colors hover:border-black dark:hover:border-white"
+            className="group/link inline-flex items-center gap-2 rounded-full border border-gray-300 dark:border-neutral-700 px-4 2xs:px-5 py-2.5 text-sm 2xs:text-base font-montserrat font-semibold transition-colors hover:border-black dark:hover:border-white"
           >
             <FaGithub aria-hidden className="text-xl" />
             More projects on GitHub

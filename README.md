@@ -56,13 +56,15 @@ Then open [http://localhost:3000](http://localhost:3000).
 ```
 components/     Page sections: Home (hero + nav), About, Experience,
                 Projects, Skills, Contacts, plus the shared Layout
+data/           Site content: projects, experience,
+                skills and contact links
 pages/          Next.js pages, _app (theme provider) and _document (fonts)
 public/images/  Project screenshots and icons
 styles/         Global styles and Tailwind directives
 utils/          tsParticles configuration for light and dark themes
 ```
 
-Content such as projects, skills and experience lives in typed arrays at the top of each component, so adding a project means adding one entry to the `projects` array in `components/Projects.tsx`.
+Content such as projects, skills and experience lives in typed arrays in `data/`, so adding a project means adding one entry to the `projects` array in `data/projects.ts`.
 
 ## Contact
 

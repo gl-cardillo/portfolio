@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const facts = [
   { value: "3+ years", label: "Professional experience" },
-  { value: "Sole", label: "Front-end developer" },
+  { value: "Vue → React", label: "Leading a full codebase migration" },
   { value: "UK", label: "Location" },
 ];
 
@@ -20,7 +20,7 @@ export function About() {
             transition={{ type: "tween", duration: 2.5 }}
             className="flex flex-col items-center"
           >
-            <h2 className=" font-dancing text-[50px] w-full max-w-[300px] text-center border-b border-black dark:border-white leading-[0.1em] my-5 mx-0 font-semibold">
+            <h2 className="font-dancing text-[50px] w-full max-w-[300px] text-center border-b border-black dark:border-white leading-[0.1em] my-5 mx-0 font-semibold">
               <span className="bg-white dark:bg-black py-5">About me</span>
             </h2>
             <div className="font-montserrat text-center p-5 text-lg leading-8 mt-8 flex flex-col gap-4 max-w-3xl">

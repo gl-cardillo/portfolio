@@ -1,41 +1,10 @@
 import { useState, type ReactNode } from "react";
-import type { IconType } from "react-icons";
-import {
-  FaLinkedin,
-  FaGithub,
-  FaEnvelope,
-  FaFileDownload,
-  FaRegCopy,
-  FaCheck,
-} from "react-icons/fa";
+import { FaEnvelope, FaRegCopy, FaCheck } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { send } from "emailjs-com";
-
-const EMAIL = "giovanniluca.cardillo@gmail.com";
-
-const links: { icon: IconType; label: string; value: string; href: string }[] =
-  [
-    {
-      icon: FaLinkedin,
-      label: "LinkedIn",
-      value: "in/luca-cardillo",
-      href: "https://www.linkedin.com/in/luca-cardillo-528229162",
-    },
-    {
-      icon: FaGithub,
-      label: "GitHub",
-      value: "gl-cardillo",
-      href: "https://github.com/gl-cardillo",
-    },
-    {
-      icon: FaFileDownload,
-      label: "CV",
-      value: "Download PDF",
-      href: "/Cardillo_CV.pdf",
-    },
-  ];
+import { send } from "@emailjs/browser";
+import { EMAIL, links } from "../data/contact";
 
 const schema = yup.object({
   name: yup.string().required("I would like to know your name!"),
@@ -119,7 +88,7 @@ export const Contacts = () => {
         process.env.NEXT_PUBLIC_SERVICE_ID ?? "",
         process.env.NEXT_PUBLIC_TEMPLATE_ID ?? "",
         data,
-        process.env.NEXT_PUBLIC_PUBLIC_KEY,
+        { publicKey: process.env.NEXT_PUBLIC_PUBLIC_KEY },
       );
       setStatus("sent");
       reset();
@@ -133,12 +102,12 @@ export const Contacts = () => {
       id="contact"
       className="flex flex-col dark:text-white text-black dark:bg-neutral-900 bg-white pt-16 pb-8 px-5"
     >
-      <h2 className="font-dancing self-center text-[50px] w-full max-w-[300px] text-center border-b dark:border-white border-black leading-[0.1em] my-5 mx-0 font-semibold">
-        <span className="dark:bg-neutral-900 bg-white py-5">Contact me</span>
+      <h2 className="font-dancing self-center text-[50px] w-full max-w-[300px] text-center border-b border-black dark:border-white leading-[0.1em] my-5 mx-0 font-semibold">
+        <span className="bg-white dark:bg-neutral-900 py-5">Contact me</span>
       </h2>
 
-      <div className="w-full max-w-5xl mx-auto grid gap-10 md:grid-cols-5 mt-12">
-        <div className="md:col-span-2 flex flex-col gap-6">
+      <div className="w-full max-w-5xl mx-auto grid grid-cols-1 gap-10 md:grid-cols-5 mt-12">
+        <div className="min-w-0 md:col-span-2 flex flex-col gap-6">
           <div>
             <h3 className="font-montserrat font-semibold text-3xl leading-tight">
               Let&apos;s build something together
@@ -180,11 +149,11 @@ export const Contacts = () => {
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gray-100 text-lg dark:bg-neutral-800">
                     <Icon />
                   </span>
-                  <span>
+                  <span className="min-w-0">
                     <span className="block text-xs uppercase tracking-wider text-gray-500 dark:text-neutral-500">
                       {label}
                     </span>
-                    <span className="block font-medium group-hover:underline">
+                    <span className="block truncate font-medium group-hover:underline">
                       {value}
                     </span>
                   </span>
@@ -197,9 +166,9 @@ export const Contacts = () => {
         <form
           onSubmit={handleSubmit(sendEmail)}
           noValidate
-          className="md:col-span-3 flex flex-col gap-2 rounded-2xl border border-gray-200 dark:border-neutral-800 bg-gray-50 dark:bg-black/40 p-6 sm:p-8 shadow-sm"
+          className="min-w-0 md:col-span-3 flex flex-col gap-2 rounded-2xl border border-gray-200 dark:border-neutral-800 bg-gray-50 dark:bg-black/40 p-4 2xs:p-6 sm:p-8 shadow-sm"
         >
-          <div className="grid gap-x-4 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-x-4 sm:grid-cols-2">
             <Field id="name" label="Name" error={errors.name?.message}>
               <input
                 type="text"
