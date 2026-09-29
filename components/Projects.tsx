@@ -1,9 +1,9 @@
 import { useState } from "react";
 import Image from "next/image";
 import { BiLinkExternal } from "react-icons/bi";
-import { motion, MotionConfig } from "framer-motion";
+import { motion } from "framer-motion";
 import { FaGithub, FaArrowRight } from "react-icons/fa";
-import {  projects, type Project } from "../data/projects";
+import { projects, type Project } from "../data/projects";
 
 
 function Screenshots({ project }: { project: Project }) {
@@ -139,37 +139,34 @@ const ProjectCard = ({
 
 export function Projects() {
   return (
-    <MotionConfig reducedMotion="user">
-      <section id="projects" className="bg-white dark:bg-black px-5 pb-16">
-        <div className="flex flex-col items-center">
-          <h2 className="font-dancing text-[50px] w-full max-w-[300px] text-center border-b border-black dark:border-white leading-[0.1em] my-5 mx-0 font-semibold">
-            <span className="bg-white dark:bg-black py-5">Projects</span>
-          </h2>
-        </div>
+    <section id="projects" className="bg-white dark:bg-black px-5 pb-16">
+      <div className="flex flex-col items-center">
+        <h2 className="font-dancing text-[50px] w-full max-w-[300px] text-center border-b border-black dark:border-white leading-[0.1em] my-5 mx-0 font-semibold">
+          <span className="bg-white dark:bg-black py-5">Projects</span>
+        </h2>
+      </div>
 
-        <div className="mx-auto mt-14 flex max-w-6xl flex-col gap-10 lg:gap-14">
-     
-          {projects.map((project, index) => (
-            <ProjectCard key={project.title} project={project} index={index} />
-          ))}
-        </div>
+      <div className="mx-auto mt-14 flex max-w-6xl flex-col gap-10 lg:gap-14">
+        {projects.map((project, index) => (
+          <ProjectCard key={project.title} project={project} index={index} />
+        ))}
+      </div>
 
-        <div className="mt-14 flex justify-center">
-          <a
-            href="https://github.com/gl-cardillo"
-            target="_blank"
-            rel="noreferrer"
-            className="group/link inline-flex items-center gap-2 rounded-full border border-gray-300 dark:border-neutral-700 px-4 2xs:px-5 py-2.5 text-sm 2xs:text-base font-montserrat font-semibold transition-colors hover:border-black dark:hover:border-white"
-          >
-            <FaGithub aria-hidden className="text-xl" />
-            More projects on GitHub
-            <FaArrowRight
-              aria-hidden
-              className="text-sm transition-transform group-hover/link:translate-x-1"
-            />
-          </a>
-        </div>
-      </section>
-    </MotionConfig>
+      <div className="mt-14 flex justify-center">
+        <a
+          href="https://github.com/gl-cardillo"
+          target="_blank"
+          rel="noreferrer"
+          className="group/link inline-flex items-center gap-2 rounded-full border border-gray-300 dark:border-neutral-700 px-4 2xs:px-5 py-2.5 text-sm 2xs:text-base font-montserrat font-semibold transition-colors hover:border-black dark:hover:border-white"
+        >
+          <FaGithub aria-hidden className="text-xl" />
+          More projects on GitHub
+          <FaArrowRight
+            aria-hidden
+            className="text-sm transition-transform group-hover/link:translate-x-1"
+          />
+        </a>
+      </div>
+    </section>
   );
 }

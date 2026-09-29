@@ -4,15 +4,15 @@ import { FaCss3Alt, FaReact, FaNodeJs, FaAws } from "react-icons/fa";
 import { DiMongodb } from "react-icons/di";
 import { IoLogoFirebase } from "react-icons/io5";
 import { SiJest, SiPassport, SiNextdotjs, SiTailwindcss } from "react-icons/si";
-import odinbook1 from "../public/images/theOdinbook1.png";
-import odinbook2 from "../public/images/theOdinbook2.png";
-import odinbook3 from "../public/images/theOdinbook3.png";
-import amazon1 from "../public/images/amazon-clone-1.png";
-import amazon2 from "../public/images/amazon-clone-2.png";
-import amazon3 from "../public/images/amazon-clone-3.png";
-import instapets1 from "../public/images/instapets1.png";
-import instapets2 from "../public/images/instapets2.png";
-import instapets3 from "../public/images/instapets3.png";
+import odinbook1 from "../public/images/theOdinbook1.webp";
+import odinbook2 from "../public/images/theOdinbook2.webp";
+import odinbook3 from "../public/images/theOdinbook3.webp";
+import amazon1 from "../public/images/amazon-clone-1.webp";
+import amazon2 from "../public/images/amazon-clone-2.webp";
+import amazon3 from "../public/images/amazon-clone-3.webp";
+import instapets1 from "../public/images/instapets1.webp";
+import instapets2 from "../public/images/instapets2.webp";
+import instapets3 from "../public/images/instapets3.webp";
 
 
 export type Project = {

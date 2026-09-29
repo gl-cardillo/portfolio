@@ -13,6 +13,12 @@ export default function Layout({ children }: { children: ReactNode }) {
         <link rel="icon" href="/images/logo.png" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
+      <a
+        href="#content"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-black focus:px-4 focus:py-2 focus:text-white dark:focus:bg-white dark:focus:text-black"
+      >
+        Skip to content
+      </a>
       <main>{children}</main>
     </>
   );

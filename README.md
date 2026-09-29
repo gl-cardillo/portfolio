@@ -8,18 +8,19 @@ I'm a UK-based front-end developer with 3+ years of professional experience buil
 
 ## Features
 
-- **Light and dark mode** with a persisted theme toggle (`next-themes`)
+- **Light and dark mode** that follows the system setting, with a persisted toggle (`next-themes`)
 - **Project showcase** with screenshot galleries, optimised with `next/image` (responsive sizes, WebP, blur placeholders)
 - **Validated contact form** built with React Hook Form and Yup, sending email through EmailJS
-- **Scroll animations** with Framer Motion that respect the user's reduced-motion setting
-- **Interactive particle background** in the hero section
+- **Scroll animations** with Framer Motion that respect the user's reduced-motion setting site-wide
+- **Interactive particle background** in the hero section, lazy-loaded, lighter on mobile and turned off for reduced motion
+- **Accessible navigation** with a mobile menu, active-section highlighting, a skip link and visible focus styles
 - **Responsive layout** from small phones up to wide desktop screens
 
 ## Tech stack
 
 | Area       | Tools                                              |
 | ---------- | -------------------------------------------------- |
-| Framework  | Next.js 16 (Pages Router), React 18                |
+| Framework  | Next.js 16 (Pages Router), React 19                |
 | Language   | TypeScript (strict mode)                           |
 | Styling    | Tailwind CSS                                       |
 | Animation  | Framer Motion, tsParticles                         |
@@ -54,14 +55,14 @@ Then open [http://localhost:3000](http://localhost:3000).
 ## Project structure
 
 ```
-components/     Page sections: Home (hero + nav), About, Experience,
-                Projects, Skills, Contacts, plus the shared Layout
+components/     Page sections: Home (hero), About, Experience, Projects,
+                Skills, Contacts, plus the shared Nav and Layout
 data/           Site content: projects, experience,
                 skills and contact links
 pages/          Next.js pages, _app (theme provider) and _document (fonts)
 public/images/  Project screenshots and icons
 styles/         Global styles and Tailwind directives
-utils/          tsParticles configuration for light and dark themes
+utils/          tsParticles configuration and shared React hooks
 ```
 
 Content such as projects, skills and experience lives in typed arrays in `data/`, so adding a project means adding one entry to the `projects` array in `data/projects.ts`.
