@@ -10,7 +10,9 @@ I'm a UK-based front-end developer with 3+ years of professional experience buil
 
 - **Light and dark mode** that follows the system setting, with a persisted toggle (`next-themes`)
 - **Project showcase** with screenshot galleries, optimised with `next/image` (responsive sizes, WebP, blur placeholders)
-- **Validated contact form** built with React Hook Form and Yup, sending email through EmailJS
+- **Validated contact form** built with React Hook Form and Yup, sending email through EmailJS, with a honeypot field against spam bots
+- **Share previews and SEO** with Open Graph and Twitter card tags, a sitemap and `robots.txt`
+- **Self-hosted fonts** through `next/font`, with no render-blocking requests to Google Fonts
 - **Scroll animations** with Framer Motion that respect the user's reduced-motion setting site-wide
 - **Interactive particle background** in the hero section, lazy-loaded, lighter on mobile and turned off for reduced motion
 - **Accessible navigation** with a mobile menu, active-section highlighting, a skip link and visible focus styles
@@ -22,7 +24,7 @@ I'm a UK-based front-end developer with 3+ years of professional experience buil
 | ---------- | -------------------------------------------------- |
 | Framework  | Next.js 16 (Pages Router), React 19                |
 | Language   | TypeScript (strict mode)                           |
-| Styling    | Tailwind CSS                                       |
+| Styling    | Tailwind CSS 4                                     |
 | Animation  | Framer Motion, tsParticles                         |
 | Forms      | React Hook Form, Yup, EmailJS                      |
 | Tooling    | ESLint (flat config with `eslint-config-next`)     |

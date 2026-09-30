@@ -10,8 +10,16 @@ import { Nav } from "./Nav";
 import { particlesOptions } from "../utils/particles";
 import { useMediaQuery } from "../utils/hooks";
 
+const loadSlimBundle = () => import("@tsparticles/slim");
+
+const slimBundle =
+  typeof window !== "undefined" &&
+  !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ? loadSlimBundle()
+    : null;
+
 const initParticles = async (engine: Engine) => {
-  const { loadSlim } = await import("@tsparticles/slim");
+  const { loadSlim } = await (slimBundle ?? loadSlimBundle());
   await loadSlim(engine);
 };
 
@@ -42,13 +50,13 @@ export function Home() {
   const reduceMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
 
   return (
-    <div id="home" className="relative min-h-[100vh] bg-white dark:bg-black">
+    <div id="home" className="relative min-h-screen bg-white dark:bg-black">
       {!reduceMotion && <ParticlesBackground />}
       <Nav />
       <div
         id="content"
         tabIndex={-1}
-        className="flex justify-center h-[93vh] flex-col outline-none"
+        className="flex justify-center h-[93vh] flex-col outline-hidden"
       >
         <motion.h1
           animate={{ y: [-20, 0], opacity: [0, 1] }}

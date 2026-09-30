@@ -12,7 +12,7 @@ function Screenshots({ project }: { project: Project }) {
 
   return (
     <div className="flex flex-col gap-3">
-      <div className="overflow-hidden rounded-xl border border-gray-200 dark:border-neutral-800 bg-gray-100 dark:bg-neutral-950 shadow-sm">
+      <div className="overflow-hidden rounded-xl border border-gray-200 dark:border-neutral-800 bg-gray-100 dark:bg-neutral-950 shadow-xs">
         <div className="flex items-center gap-3 border-b border-gray-200 dark:border-neutral-800 px-4 py-2.5">
           <div aria-hidden className="flex gap-1.5">
             <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
@@ -23,7 +23,7 @@ function Screenshots({ project }: { project: Project }) {
             {host}
           </span>
         </div>
-        <div className="relative aspect-[16/9] overflow-hidden">
+        <div className="relative aspect-video overflow-hidden">
           {project.images.map((image, index) => (
             <Image
               key={image.src}
@@ -47,7 +47,7 @@ function Screenshots({ project }: { project: Project }) {
             onClick={() => setActive(index)}
             aria-label={`Show ${project.title} screenshot ${index + 1}`}
             aria-pressed={index === active}
-            className={`relative aspect-[16/9] overflow-hidden rounded-lg border-2 transition ${
+            className={`relative aspect-video overflow-hidden rounded-lg border-2 transition ${
               index === active
                 ? "border-black dark:border-white"
                 : "border-transparent opacity-60 hover:opacity-100"
@@ -82,7 +82,7 @@ const ProjectCard = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="group grid grid-cols-1 items-center gap-8 rounded-2xl border border-gray-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-4 sm:p-6 lg:grid-cols-12 lg:gap-10 lg:p-8 shadow-sm transition-shadow hover:shadow-lg"
+      className="group grid grid-cols-1 items-center gap-8 rounded-2xl border border-gray-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-4 sm:p-6 lg:grid-cols-12 lg:gap-10 lg:p-8 shadow-xs transition-shadow hover:shadow-lg"
     >
       <div className={`min-w-0 lg:col-span-7 ${reversed ? "lg:order-last" : ""}`}>
         <Screenshots project={project} />

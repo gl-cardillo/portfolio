@@ -13,7 +13,7 @@ export function Skills() {
         {skillGroups.map(({ title, skills }) => (
           <div
             key={title}
-            className="rounded-2xl border border-gray-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-6 shadow-sm"
+            className="rounded-2xl border border-gray-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-6 shadow-xs"
           >
             <h3 className="font-montserrat text-xl font-semibold">{title}</h3>
             <ul className="mt-4 flex flex-wrap gap-2">

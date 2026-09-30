@@ -61,7 +61,7 @@ const ThemeToggle = ({ barWidth }: { barWidth: number | null }) => {
         aria-hidden
         animate={{ x: isDark ? 28 : 0 }}
         transition={{ type: "spring", stiffness: 500, damping: 30 }}
-        className="relative flex h-6 w-6 items-center justify-center rounded-full bg-black text-white shadow dark:bg-white dark:text-black"
+        className="relative flex h-6 w-6 items-center justify-center rounded-full bg-black text-white shadow-sm dark:bg-white dark:text-black"
       >
         <AnimatePresence mode="wait" initial={false}>
           {mounted && (
@@ -89,6 +89,7 @@ const ThemeToggle = ({ barWidth }: { barWidth: number | null }) => {
 export function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const active = useActiveSection(sectionIds);
+  const navRef = useRef<HTMLElement>(null);
   const barRef = useRef<HTMLUListElement>(null);
   const [barWidth, setBarWidth] = useState<number | null>(null);
 
@@ -102,17 +103,28 @@ export function Nav() {
     return () => observer.disconnect();
   }, []);
 
+  // Close the mobile menu on Escape, a tap outside the nav, or scrolling.
   useEffect(() => {
     if (!menuOpen) return;
+    const close = () => setMenuOpen(false);
     const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setMenuOpen(false);
+      if (event.key === "Escape") close();
+    };
+    const closeOnOutsideTap = (event: PointerEvent) => {
+      if (!navRef.current?.contains(event.target as Node)) close();
     };
     window.addEventListener("keydown", closeOnEscape);
-    return () => window.removeEventListener("keydown", closeOnEscape);
+    document.addEventListener("pointerdown", closeOnOutsideTap);
+    window.addEventListener("scroll", close, { passive: true });
+    return () => {
+      window.removeEventListener("keydown", closeOnEscape);
+      document.removeEventListener("pointerdown", closeOnOutsideTap);
+      window.removeEventListener("scroll", close);
+    };
   }, [menuOpen]);
 
   return (
-    <nav aria-label="Main">
+    <nav ref={navRef} aria-label="Main">
       <ThemeToggle barWidth={barWidth} />
       <motion.ul
         ref={barRef}
@@ -126,7 +138,7 @@ export function Nav() {
             <Link
               href={`#${id}`}
               aria-current={active === id ? "location" : undefined}
-              className="rounded px-1 py-1 decoration-2 underline-offset-8 hover:underline aria-[current=location]:underline"
+              className="rounded-sm px-1 py-1 decoration-2 underline-offset-8 hover:underline aria-[current=location]:underline"
             >
               {label}
             </Link>
@@ -139,7 +151,7 @@ export function Nav() {
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
-            className="flex h-9 w-9 items-center justify-center rounded text-2xl"
+            className="flex h-9 w-9 items-center justify-center rounded-sm text-2xl"
           >
             {menuOpen ? <FiX /> : <FiMenu />}
           </button>
@@ -154,7 +166,7 @@ export function Nav() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-0 z-40 flex flex-col gap-1 border-b border-gray-200 dark:border-neutral-800 bg-white/95 dark:bg-black/95 backdrop-blur px-6 pt-16 pb-4 font-montserrat text-base font-semibold text-black dark:text-white sm:hidden"
+            className="fixed inset-x-0 top-0 z-40 flex flex-col gap-1 border-b border-gray-200 dark:border-neutral-800 bg-white/95 dark:bg-black/95 backdrop-blur-sm px-6 pt-16 pb-4 font-montserrat text-base font-semibold text-black dark:text-white sm:hidden"
           >
             {navLinks.map(({ id, label }) => (
               <li key={id}>
@@ -162,7 +174,7 @@ export function Nav() {
                   href={`#${id}`}
                   onClick={() => setMenuOpen(false)}
                   aria-current={active === id ? "location" : undefined}
-                  className="block rounded py-2.5 decoration-2 underline-offset-8 aria-[current=location]:underline"
+                  className="block rounded-sm py-2.5 decoration-2 underline-offset-8 aria-[current=location]:underline"
                 >
                   {label}
                 </Link>

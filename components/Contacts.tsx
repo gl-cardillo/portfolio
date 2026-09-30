@@ -13,6 +13,7 @@ const schema = yup.object({
     .email("Enter a valid email")
     .required("I need an email to answer you back"),
   message: yup.string().required("Nothing to say?"),
+  website: yup.string(),
 });
 
 type ContactForm = yup.InferType<typeof schema>;
@@ -20,7 +21,7 @@ type ContactForm = yup.InferType<typeof schema>;
 type Status = "idle" | "sending" | "sent" | "error";
 
 const inputClassName =
-  "w-full rounded-lg border border-gray-300 dark:border-neutral-700 bg-white dark:bg-neutral-950 px-4 py-2.5 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-neutral-500 transition-colors focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 aria-[invalid=true]:border-red-500 aria-[invalid=true]:focus:ring-red-500/30";
+  "w-full rounded-lg border border-gray-300 dark:border-neutral-700 bg-white dark:bg-neutral-950 px-4 py-2.5 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-neutral-500 transition-colors focus:outline-hidden focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 aria-invalid:border-red-500 aria-invalid:focus:ring-red-500/30";
 
 const Field = ({
   id,
@@ -39,7 +40,7 @@ const Field = ({
         {label}
       </label>
       {children}
-      <p id={`${id}-error`} className="text-red-500 text-xs min-h-[1rem]">
+      <p id={`${id}-error`} className="text-red-500 text-xs min-h-4">
         {error}
       </p>
     </div>
@@ -81,7 +82,12 @@ export const Contacts = () => {
     resolver: yupResolver(schema),
   });
 
-  const sendEmail = async (data: ContactForm) => {
+  const sendEmail = async ({ website, ...data }: ContactForm) => {
+    if (website) {
+      setStatus("sent");
+      reset();
+      return;
+    }
     setStatus("sending");
     try {
       await send(
@@ -166,7 +172,7 @@ export const Contacts = () => {
         <form
           onSubmit={handleSubmit(sendEmail)}
           noValidate
-          className="min-w-0 md:col-span-3 flex flex-col gap-2 rounded-2xl border border-gray-200 dark:border-neutral-800 bg-gray-50 dark:bg-black/40 p-4 2xs:p-6 sm:p-8 shadow-sm"
+          className="min-w-0 md:col-span-3 flex flex-col gap-2 rounded-2xl border border-gray-200 dark:border-neutral-800 bg-gray-50 dark:bg-black/40 p-4 2xs:p-6 sm:p-8 shadow-xs"
         >
           <div className="grid grid-cols-1 gap-x-4 sm:grid-cols-2">
             <Field id="name" label="Name" error={errors.name?.message}>
@@ -205,6 +211,16 @@ export const Contacts = () => {
               className={`${inputClassName} resize-y`}
             />
           </Field>
+          <div aria-hidden className="absolute left-[-9999px] h-px w-px overflow-hidden">
+            <label htmlFor="website">Leave this field empty</label>
+            <input
+              type="text"
+              id="website"
+              tabIndex={-1}
+              autoComplete="off"
+              {...register("website")}
+            />
+          </div>
           <div className="flex flex-col-reverse gap-4 sm:flex-row sm:items-center sm:justify-between">
             <p role="status" className="text-sm">
               {status === "sent" && (

@@ -1,4 +1,3 @@
-import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 
 const facts = [
@@ -8,15 +7,14 @@ const facts = [
 ];
 
 export function About() {
-  const { ref, inView } = useInView({ triggerOnce: true });
-
   return (
     <div id="about" className="flex bg-white dark:bg-black">
       <div className="pt-5 pb-12 mx-auto my-20 border-b border-slate-300">
-        <div ref={ref}>
+        <div>
           <motion.div
             initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : undefined}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
             transition={{ type: "tween", duration: 2.5 }}
             className="flex flex-col items-center"
           >

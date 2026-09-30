@@ -13,7 +13,7 @@ export const Experience = () => {
           <li key={entry.role} className="relative pl-8 pb-12 last:pb-0">
             <span
               aria-hidden
-              className="absolute -left-[9px] top-2 h-4 w-4 rounded-full bg-black dark:bg-white ring-4 ring-white dark:ring-black"
+              className="absolute left-[-9px] top-2 h-4 w-4 rounded-full bg-black dark:bg-white ring-4 ring-white dark:ring-black"
             />
             <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
               <h3 className="font-montserrat text-2xl font-semibold">
