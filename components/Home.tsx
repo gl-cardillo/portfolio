@@ -10,17 +10,18 @@ import { Nav } from "./Nav";
 import { particlesOptions } from "../utils/particles";
 import { useMediaQuery } from "../utils/hooks";
 
-const loadSlimBundle = () => import("@tsparticles/slim");
+const loadParticlesBundle = () => import("../utils/particlesBundle");
 
-const slimBundle =
+const particlesBundle =
   typeof window !== "undefined" &&
   !window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    ? loadSlimBundle()
+    ? loadParticlesBundle()
     : null;
 
 const initParticles = async (engine: Engine) => {
-  const { loadSlim } = await (slimBundle ?? loadSlimBundle());
-  await loadSlim(engine);
+  const { loadParticlesPlugins } = await (particlesBundle ??
+    loadParticlesBundle());
+  await loadParticlesPlugins(engine);
 };
 
 function ParticlesBackground() {
