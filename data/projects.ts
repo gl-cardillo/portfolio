@@ -4,12 +4,12 @@ import { FaCss3Alt, FaReact, FaNodeJs, FaAws, FaSass } from "react-icons/fa";
 import { DiMongodb } from "react-icons/di";
 import { IoLogoFirebase } from "react-icons/io5";
 import {  SiNextdotjs, SiTailwindcss, SiTypescript, SiReactquery, SiExpress, SiJsonwebtokens, SiVitest, SiCypress } from "react-icons/si";
-import odinbook1 from "../public/images/theOdinbook1.webp";
-import odinbook2 from "../public/images/theOdinbook2.webp";
-import odinbook3 from "../public/images/theOdinbook3.webp";
-import amazon1 from "../public/images/amazon-clone-1.webp";
-import amazon2 from "../public/images/amazon-clone-2.webp";
-import amazon3 from "../public/images/amazon-clone-3.webp";
+import odinbook1 from "../public/images/odinbook-profile-dark.png";
+import odinbook2 from "../public/images/odinbook-feed-light.png";
+import odinbook3 from "../public/images/odinbook-notifications-dark.png";
+import storefront1 from "../public/images/storefront-home-light.png";
+import storefront2 from "../public/images/storefront-product-dark.png";
+import storefront3 from "../public/images/storefront-category-light.png";
 import instapets1 from "../public/images/instapets1.webp";
 import instapets2 from "../public/images/instapets2.webp";
 import instapets3 from "../public/images/instapets3.webp";
@@ -26,6 +26,21 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+   {
+    title: "Storefront",
+    category: "E-commerce",
+    images: [storefront1, storefront2, storefront3],
+    description:
+      "A full-stack e-commerce demo with accounts, a persistent basket and product reviews. Browse by category, search with live suggestions, rate products and switch between light and dark mode. Accessible, responsive and covered by end-to-end tests.",
+    stack: [
+      { icon: SiNextdotjs, name: "Next.js" },
+      { icon: SiTypescript, name: "TypeScript" },
+      { icon: DiMongodb, name: "MongoDB" },
+      { icon: SiTailwindcss, name: "Tailwind CSS" },
+    ],
+    liveUrl: "https://amazon-clone-glcardillos-projects.vercel.app/",
+    codeUrl: "https://github.com/gl-cardillo/amazon-clone",
+  },
 {
   title: "The Odinbook",
   category: "Social network",
@@ -49,20 +64,6 @@ export const projects: Project[] = [
   codeUrl: "https://github.com/gl-cardillo/the-odinbook",
 },
 
-  {
-    title: "Amazon Clone",
-    category: "E-commerce",
-    images: [amazon1, amazon2, amazon3],
-    description:
-      "A full-stack e-commerce app with authentication and account management. Users can browse products by category, leave reviews with ratings and manage their shopping cart.",
-    stack: [
-      { icon: SiNextdotjs, name: "Next.js" },
-      { icon: DiMongodb, name: "MongoDB" },
-      { icon: SiTailwindcss, name: "Tailwind CSS" },
-    ],
-    liveUrl: "https://amazon-clone-glcardillos-projects.vercel.app/",
-    codeUrl: "https://github.com/gl-cardillo/amazon-clone",
-  },
   {
     title: "Instapets",
     category: "Social app",
