@@ -23,6 +23,7 @@
     "@tsparticles/interaction-particles-collisions": "^4.4.0",
     "@tsparticles/interaction-particles-links": "^4.4.0",
     "@tsparticles/plugin-interactivity": "^4.4.0",
+    "@tsparticles/plugin-responsive": "^4.4.0",
     "@tsparticles/react": "^4.4.0",
     "framer-motion": "^13.4.5",
     "next": "^16.3.6",

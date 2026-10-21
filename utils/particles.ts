@@ -7,10 +7,7 @@ const colors: Record<Theme, { background: string; links: string }> = {
   light: { background: "#ffffff", links: "#000000" },
 };
 
-export function particlesOptions(
-  theme: Theme,
-  isSmallScreen: boolean,
-): ISourceOptions {
+export function particlesOptions(theme: Theme): ISourceOptions {
   return {
     background: { color: { value: colors[theme].background } },
     fullScreen: false,
@@ -45,12 +42,19 @@ export function particlesOptions(
       },
       number: {
         density: { enable: true, width: 800, height: 800 },
-        value: isSmallScreen ? 60 : 150,
+        value: 150,
       },
       opacity: { value: 0.5 },
       shape: { type: "circle" },
       size: { value: { min: 1, max: 5 } },
     },
+    responsive: [
+      {
+        maxWidth: 639,
+        mode: "window",
+        options: { particles: { number: { value: 60 } } },
+      },
+    ],
     detectRetina: true,
   };
 }

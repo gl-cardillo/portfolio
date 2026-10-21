@@ -9,32 +9,19 @@ import Link from "next/link";
 import { Nav } from "./Nav";
 import { particlesOptions } from "../utils/particles";
 import { useMediaQuery } from "../utils/hooks";
+import { loadParticlesPlugins } from "../utils/particlesBundle";
 
-const loadParticlesBundle = () => import("../utils/particlesBundle");
-
-const particlesBundle =
-  typeof window !== "undefined" &&
-  !window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    ? loadParticlesBundle()
-    : null;
-
-const initParticles = async (engine: Engine) => {
-  const { loadParticlesPlugins } = await (particlesBundle ??
-    loadParticlesBundle());
-  await loadParticlesPlugins(engine);
-};
+const initParticles = (engine: Engine) => loadParticlesPlugins(engine);
 
 function ParticlesBackground() {
   const { resolvedTheme } = useTheme();
-  const isSmallScreen = useMediaQuery("(max-width: 639px)");
   const options = useMemo(
-    () =>
-      particlesOptions(
-        resolvedTheme === "light" ? "light" : "dark",
-        isSmallScreen,
-      ),
-    [resolvedTheme, isSmallScreen],
+    () => particlesOptions(resolvedTheme === "light" ? "light" : "dark"),
+    [resolvedTheme],
   );
+
+  // Wait for next-themes so the particles are built once with the right colours
+  if (!resolvedTheme) return null;
 
   return (
     <ParticlesProvider init={initParticles}>

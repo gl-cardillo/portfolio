@@ -5,9 +5,14 @@ import { loadParticlesLinksInteraction } from "@tsparticles/interaction-particle
 import { loadParticlesCollisionsInteraction } from "@tsparticles/interaction-particles-collisions";
 import { loadExternalGrabInteraction } from "@tsparticles/interaction-external-grab";
 import { loadExternalPushInteraction } from "@tsparticles/interaction-external-push";
+import { loadResponsivePlugin } from "@tsparticles/plugin-responsive";
 
 export async function loadParticlesPlugins(engine: Engine) {
-  await Promise.all([loadBasic(engine), loadInteractivityPlugin(engine)]);
+  await Promise.all([
+    loadBasic(engine),
+    loadInteractivityPlugin(engine),
+    loadResponsivePlugin(engine),
+  ]);
   await Promise.all([
     loadParticlesLinksInteraction(engine),
     loadParticlesCollisionsInteraction(engine),
