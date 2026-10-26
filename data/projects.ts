@@ -38,8 +38,8 @@ export const projects: Project[] = [
       { icon: DiMongodb, name: "MongoDB" },
       { icon: SiTailwindcss, name: "Tailwind CSS" },
     ],
-    liveUrl: "https://amazon-clone-glcardillos-projects.vercel.app/",
-    codeUrl: "https://github.com/gl-cardillo/amazon-clone",
+    liveUrl: "https://glc-storefront.vercel.app/",
+    codeUrl: "https://github.com/gl-cardillo/storefront",
   },
 {
   title: "The Odinbook",
